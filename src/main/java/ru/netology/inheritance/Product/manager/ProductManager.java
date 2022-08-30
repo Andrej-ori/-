@@ -29,7 +29,7 @@ public class ProductManager {
                     tmp[i] = result;
                     i++;
                 }
-                tmp[tmp.length - 1] = tmp.s;
+                tmp[results.length] = product;
                 results = tmp;
             }
         }
@@ -38,8 +38,8 @@ public class ProductManager {
 
 
     public boolean matches(Product product, String search) {
-        if (product.getName().contains(search)) {
-        }
+//        if (product.getName().contains(search)) {
+//        }
         return product.getName().contains(search);
     }
 

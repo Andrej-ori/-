@@ -9,6 +9,11 @@ import ru.netology.inheritance.Product.Smartphone;
 import ru.netology.inheritance.Product.repository.Repository;
 
 public class ProductManagerTest {
+
+    Repository repo = new Repository();
+    ProductManager manager = new ProductManager(repo);
+
+
     Product product1 = new Product(1, "product1", 250);
     Product product2 = new Product(2, "product2", 300);
     Product product3 = new Product(3, "product3", 350);
@@ -18,9 +23,6 @@ public class ProductManagerTest {
     Smartphone product7 = new Smartphone(7,"smartphone1", 1000,"manufacturer1");
     Smartphone product8 = new Smartphone(8,"smartphone2", 1100,"manufacturer2");
     Smartphone product9 = new Smartphone(9,"smartphone3", 1200,"manufacturer3");
-
-    Repository repo = new Repository();
-    ProductManager manager = new ProductManager(repo);
 
 
     @Test
@@ -45,8 +47,21 @@ public class ProductManagerTest {
     @Test
     public void searchByName(){
 
-        Product[] expected = {product5};
-        Product[] actual = manager.searchBy("product5");
+        manager.add(product1);
+        manager.add(product2);
+        manager.add(product3);
+        manager.add(product4);
+        manager.add(product5);
+        manager.add(product6);
+        manager.add(product7);
+        manager.add(product8);
+        manager.add(product9);
+
+        Product[] expected = {
+                      product5
+        };
+        Product[] actual = manager.searchBy("book2");
+
         Assertions.assertArrayEquals(expected, actual);
     }
 
